@@ -1,0 +1,12 @@
+/lib/materialize/
+/lib/styles/
+!/lib/styles/vizuly.css
+!/lib/styles/vizuly_radial_progress.css
+!/lib/styles/cssmenu.css
+!/lib/jquery-2.1.1.min.js
+!/lib/cssmenu.js
+/radialprogress/lib/
+!/radialprogress/lib/d3.min.js
+!/radialprogress/lib/vizuly_core.min.js
+!/radialprogress/lib/vizuly_radialprogress.min.js
+/radialprogress/src/
