@@ -1,5 +1,6 @@
 /lib/materialize/
-/lib/styles/
+/lib/styles/*
+!/lib/styles/img
 !/lib/styles/vizuly.css
 !/lib/styles/vizuly_radial_progress.css
 !/lib/styles/cssmenu.css
@@ -12,3 +13,4 @@
 /radialprogress/src/
 /radialprogress/RadialprogressTest.html
 /radialprogress/radialprogress_test.js
+updated_dashboard
