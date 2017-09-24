@@ -58,26 +58,26 @@ function initialize() {
 
     //Here we use the three div tags from our HTML page to load the three components into.
     div1 = d3.select("#div1");
-    div2 = d3.select("#div2");
+    // div2 = d3.select("#div2");
     // div3 = d3.select("#div3");
     //Store the divs in an array for easy access
-    divs=[div1,div2];
+    divs=[div1];
 
     //Here we create our three radial progress components by passing in a parent DOM element (our div tags)
     viz1 = vizuly.viz.radial_progress(document.getElementById("div1"));
-    viz2 = vizuly.viz.radial_progress(document.getElementById("div2"));
+    // viz2 = vizuly.viz.radial_progress(document.getElementById("div2"));
     // viz3 = vizuly.viz.radial_progress(document.getElementById("div3"));
     //Store the vizs in an array for easy access
-    vizs=[viz1,viz2];
+    vizs=[viz1];
 
 
     //Here we create three vizuly themes for each radial progress component.
     //A theme manages the look and feel of the component output.  You can only have
     //one component active per theme, so we bind each theme to the corresponding component.
     theme1 = vizuly.theme.radial_progress(viz1).skin(vizuly.skin.RADIAL_PROGRESS_BUSINESS);
-    theme2 = vizuly.theme.radial_progress(viz2).skin(vizuly.skin.RADIAL_PROGRESS_BUSINESS);
+    // theme2 = vizuly.theme.radial_progress(viz2).skin(vizuly.skin.RADIAL_PROGRESS_BUSINESS);
     // theme3 = vizuly.theme.radial_progress(viz3).skin(vizuly.skin.RADIAL_PROGRESS_BUSINESS);
-    themes=[theme1,theme2];
+    themes=[theme1];
 
     //Like D3 and jQuery, vizuly uses a function chaining syntax to set component properties
     //Here we set some bases line properties for all three components.
@@ -108,16 +108,16 @@ function initialize() {
             return d3.format(".0f")(d);
         });
 
-    vizs[1]
-        .startAngle(250)
-        .endAngle(110)
-        .arcThickness(.12)
-        .min(0)
-        .max(4000)
-        .title("Money Raised")
-        // .data(1846.00)
-        .data(getParameterByName("dollars-raised") || 0)
-        .label(function (d,i) { return d3.format("$,.2f")(d); });
+    // vizs[1]
+    //     .startAngle(250)
+    //     .endAngle(110)
+    //     .arcThickness(.12)
+    //     .min(0)
+    //     .max(4000)
+    //     .title("Money Raised")
+    //     // .data(1846.00)
+    //     .data(getParameterByName("dollars-raised") || 0)
+    //     .label(function (d,i) { return d3.format("$,.2f")(d); });
 
     // vizs[2]
     //     .startAngle(180)
@@ -188,11 +188,14 @@ function changeSize(val) {
     var s = String(val).split(",");
     viz_container.transition().duration(300).style('width', s[0] + 'px').style('height', s[1] + 'px');
 
-    var divWidth = s[0] * 0.80 / 3;
+    // var divWidth = s[0] * 0.80 / 3;
+    var divWidth = s[0] * 0.80;
+    var divHeight = divWidth * 0.80;
 
     divs.forEach(function (div,i) {
         div.style("width",divWidth + 'px').style("margin-left", (s[0] *.05) + "px");
-        vizs[i].width(divWidth).height(divWidth).radius(divWidth/2.2).update();
+        // vizs[i].width(divWidth).height(divWidth/2).radius(divWidth/2.2).update();
+        vizs[i].width(divWidth).height(divHeight).radius(divWidth/2.2).update();
     })
 
 }

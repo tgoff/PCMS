@@ -73,7 +73,7 @@ svg.vizuly {
 div.radial_container {
     float:left;
     position: relative;
-    top: 45%;
+    top: 60%;
     transform: translateY(-50%);
 }
 
@@ -87,4 +87,3 @@ div.radial_container {
     );
     border-radius:6px;
 }
-
