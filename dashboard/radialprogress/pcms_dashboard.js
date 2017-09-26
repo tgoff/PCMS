@@ -44,6 +44,8 @@ var div1,div2,div3,divs;
 // show reel for demo only;
 var reels=[];
 
+// require('jquery-countdown');
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -126,7 +128,8 @@ function initialize() {
     //     .label(function (d,i) { return d3.format(".0f")(d) + "%"; });
 
     //We use this function to size the components based on the selected value from the RadiaLProgressTest.html page.
-    changeSize(d3.select("#currentDisplay").attr("item_value"));
+    // changeSize(d3.select("#currentDisplay").attr("item_value"));
+    changeSize("650,700");
 
 }
 
@@ -188,14 +191,18 @@ function changeSize(val) {
     var s = String(val).split(",");
     viz_container.transition().duration(300).style('width', s[0] + 'px').style('height', s[1] + 'px');
 
-    // var divWidth = s[0] * 0.80 / 3;
-    var divWidth = s[0] * 0.80;
-    var divHeight = divWidth * 0.80;
+    var divWidth = (parseInt(s[0]) > parseInt(s[1])) ? s[1] : s[0]
+    console.log(" divWidth = " + divWidth)
+    divWidth = divWidth * 0.80 ;
+    console.log( "s[0] = " + s[0] + " s[1] = " + s[1] + " divWidth = " + divWidth)
+    // var divWidth = s[0] * 0.33;
+    // var divHeight = s[1] * 0.50;
 
     divs.forEach(function (div,i) {
-        div.style("width",divWidth + 'px').style("margin-left", (s[0] *.05) + "px");
-        // vizs[i].width(divWidth).height(divWidth/2).radius(divWidth/2.2).update();
-        vizs[i].width(divWidth).height(divHeight).radius(divWidth/2.2).update();
+        div.style("width",divWidth + 'px').style("margin-left", (divWidth *.10) + "px");
+        // div.style("width",'100%').style("margin-left", (s[0] *.05) + "px");
+        vizs[i].width(divWidth).height(divWidth * 0.80).radius(divWidth/2.2).update();
+        // vizs[i].width("100%").height("100%").radius(divWidth/2.2).update();
     })
 
 }
