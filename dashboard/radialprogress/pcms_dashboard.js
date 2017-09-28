@@ -105,7 +105,7 @@ function initialize() {
         .min(0)
         .max(4560)
         .title("Pledged Votes")
-        .data(getParameterByName("votes-pledged") || 0)
+        .data(getParameterByName("votes-pledged") || 441)
         .label(function (d,i) {                  // The 'label' property allows us to use a dynamic function for labeling.
             return d3.format(".0f")(d);
         });
